@@ -15,7 +15,7 @@ export const TableBilan = () => {
               </div>
 
               <div className="br-pagebody mg-t-5 pd-x-30">
-                  <div className="row row-sm">
+                  <div className="row row-sm col-sm-12 col-md-12 col-xl-12">
                       <div className="col-sm-6 col-xl-3">
                           <div className="bg-teal rounded overflow-hidden">
                               <div className="pd-25 d-flex align-items-center">

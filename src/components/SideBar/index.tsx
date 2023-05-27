@@ -21,7 +21,7 @@ export const SideBar = () => {
 
         <a className="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
            aria-controls="offcanvasExample">
-            Link with href
+            Accueil
         </a>
         <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample"
              aria-labelledby="offcanvasExampleLabel">
@@ -40,10 +40,6 @@ export const SideBar = () => {
                     </div>
                 </div>
                 <div className="dropdown mt-3">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown">
-                        Dropdown button
-                    </button>
                     <ul id='sidebar_menu'>
                         {SIDEBAR_DATA.map((item, kIndex) => {
                             return (

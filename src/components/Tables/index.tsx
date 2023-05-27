@@ -76,29 +76,7 @@ export const TableBilan = () => {
                   <div className="row row-sm mg-t-20">
                       <div className="col-8">
 
-                          <div className="card pd-0 bd-0 shadow-base">
-                              <div className="pd-x-30 pd-t-30 pd-b-15">
-                                  <div className="d-flex align-items-center justify-content-between">
-                                      <div>
-                                          <h6 className="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Network
-                                              Performance</h6>
-                                          <p className="mg-b-0">Duis autem vel eum iriure dolor in hendrerit in
-                                              vulputate...</p>
-                                      </div>
-                                      <div className="tx-13">
-                                          <p className="mg-b-0"><span
-                                              className="square-8 rounded-circle bg-purple mg-r-10"></span> TCP Reset
-                                              Packets</p>
-                                          <p className="mg-b-0"><span
-                                              className="square-8 rounded-circle bg-pink mg-r-10"></span> TCP FIN
-                                              Packets</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="pd-x-15 pd-b-15">
-                                  <div id="ch1" className="br-chartist br-chartist-2 ht-200 ht-sm-300"></div>
-                              </div>
-                          </div>
+
 
 
 

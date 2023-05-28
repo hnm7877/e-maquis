@@ -19,9 +19,11 @@ const ChartComponent = () => {
 
 export const ChartComponentBar = () => {
     return (
-        <div>
+        <div >
+            <div className="card">
             <h1>Chart Example</h1>
             <ChartComponent />
+            </div>
         </div>
     );
 };

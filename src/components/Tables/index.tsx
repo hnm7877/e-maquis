@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
+import {CharComponentBar} from "../Charts/bar";
 
 export const TableBilan = () => {
     return (
@@ -77,7 +78,7 @@ export const TableBilan = () => {
                       <div className="col-8">
 
 
-
+                        <CharComponentBar/>
 
 
                       </div>

@@ -1,5 +1,5 @@
 import { Filters } from './Filters';
-import { TableBilan } from '../../components/Tables';
+import {ComponentBilan} from '../../components/Tables';
 
 import './bilan.css';
 
@@ -8,7 +8,7 @@ export const Bilan = () => {
     <div className='bilan'>
       <Filters />
       <div className='bilan-content'>
-      <TableBilan />
+      <ComponentBilan />
       </div>
     </div>
   );

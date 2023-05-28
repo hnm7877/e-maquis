@@ -1,5 +1,6 @@
 import {Chart} from "chart.js";
 
+
 const ctx = document.getElementById('myChart');
 
 new Chart(ctx, {
@@ -20,3 +21,4 @@ new Chart(ctx, {
         }
     }
 });
+

@@ -2,7 +2,8 @@ import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
-import {CharComponentBar} from "../Charts/bar";
+import {ChartComponentBar} from "../Charts/bar";
+
 
 export const TableBilan = () => {
     return (
@@ -74,12 +75,15 @@ export const TableBilan = () => {
                       </div>
                   </div>
 
-                  <div className="row row-sm mg-t-20">
-                      <div className="col-8">
+                  <div className="row mg-t-20 ">
+                      <div className= "col-lg-12 d-flex  align-content-center">
 
 
-                        <CharComponentBar/>
+                          <div className="col-lg-7 col-md-12 col-sm-12">
 
+                            <ChartComponentBar/>
+
+                          </div>
 
                       </div>
 

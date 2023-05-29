@@ -25,16 +25,23 @@ export const ComponentBilan = () => {
                   <div className="row mg-t-20 col-lg-12 col-md-7 col-sm-7">
                       <div className= "col-lg-12 d-flex  align-content-center">
 
-                          <div className="col-lg-7 col-md-12 col-sm-12 card_doughnut">
+                          <div className="col-lg-4 col-md-12 col-sm-12 card_doughnut">
 
                               <ChartComponentDoughnut />
 
                           </div>
-                          <div className="col-lg-7 col-md-12 col-sm-12 card_doughnut">
+                          <div className="col-lg-4 col-md-12 col-sm-12 card_doughnut">
 
                               <ChartComponent/>
 
                           </div>
+
+                          <div className="col-lg-4 col-md-12 col-sm-12 card_doughnut">
+
+                              <ChartComponentPolarArea/>
+
+                          </div>
+
                       </div>
 
                   </div>

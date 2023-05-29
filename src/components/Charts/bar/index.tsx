@@ -1,9 +1,12 @@
-import { Pie, Doughnut, PolarArea } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart } from 'react-chartjs-2';
+import 'chart.js/auto';
+import { Chart as ChartJS, LineController, LineElement, PointElement, LinearScale, Title } from 'chart.js';
+
+ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title);
+
 
 import './bar.css';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
 
 const data = {
     labels: ['Red',
@@ -50,17 +53,17 @@ const data = {
 };
 
 export const ChartComponent = () => {
-    return <Pie data={data} />;
+    return <Chart type='pie' data={data} />;
 };
 
 export const ChartComponentDoughnut = () => {
-    return <Doughnut data={data} />;
+    return <Chart type='doughnut' data={data} />;
 };
 
 
 
  export const ChartComponentPolarArea = () => {
-        return <PolarArea data={data} />;
+        return <Chart type='polarArea' data={data} />;
  };
 
 console.log("Mano :", ChartComponentPolarArea)

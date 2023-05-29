@@ -21,8 +21,8 @@ export const ComponentBilan = () => {
               <div className="br-pagebody mg-t-5 pd-x-30">
                   <CardBilan/>
                   <TableBilan/>
-                  <div className="container d-flex justify-content-between col-lg-12">
-                      <div className="col-7">
+                  <div className="container d-flex justify-content-around col-lg-12">
+                      <div className="col-5">
                           <ChartComponentBar />
                       </div>
                       <div className="col-5">

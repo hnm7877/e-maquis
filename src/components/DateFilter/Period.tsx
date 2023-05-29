@@ -3,7 +3,6 @@ import 'react-calendar/dist/Calendar.css';
 import { PrevIcon } from '../../assets/svgs/PrevIcon';
 import { NextIcon } from '../../assets/svgs/NextIcon';
 import { helperDate, helperResetDate } from '../../helpers/helperDate';
-import { useState } from 'react';
 
 const LabelsList = [
   { label: 'Jour', value: 'day' },
@@ -12,15 +11,27 @@ const LabelsList = [
   { label: 'Année', value: 'year' },
 ] as const;
 
-export const Period = () => {
-  const [labelSelected, setLabelSelected] = useState<any>();
+export const Period = ({
+  date,
+  onChange,
+  periodType,
+  onPeriodType,
+}: {
+  date: Date | null;
+  onChange: (date: Date | null) => void;
+  onPeriodType: (periodType: string) => void;
+  periodType: (typeof LabelsList)[number]['value'];
+}) => {
+  const labelSelected = LabelsList.find(
+    (item) => item.value === periodType
+  )?.value;
 
   const handleSelectLabel = (value: string) => {
-    setLabelSelected(value);
+    onPeriodType(value);
   };
 
   const calendarViewType =
-    ['day', 'week'].includes(labelSelected) || !labelSelected
+    (labelSelected && ['day', 'week'].includes(labelSelected)) || !labelSelected
       ? 'month'
       : labelSelected === 'year'
       ? 'decade'
@@ -53,20 +64,20 @@ export const Period = () => {
           }
           formatShortWeekday={(locale, date) => helperDate(date, 'dd')}
           view={calendarViewType}
-          //   onClickDecade={(date) => handleChangeDate(date)}
-          //   onClickMonth={(date) => handleChangeDate(date)}
-          //   onClickYear={(date) => handleChangeDate(date)}
-          //   onClickDay={(date) => handleChangeDate(date)}
-          //   value={
-          //     labelSelected === 'week'
-          //       ? [
-          //           date,
-          //           helperResetDate(date || new Date())
-          //             .add(+6, 'day')
-          //             .toDate(),
-          //         ]
-          //       : date
-          //   }
+          onClickDecade={(date) => onChange(date)}
+          onClickMonth={(date) => onChange(date)}
+          onClickYear={(date) => onChange(date)}
+          onClickDay={(date) => onChange(date)}
+          value={
+            labelSelected === 'week'
+              ? [
+                  date,
+                  helperResetDate(date || new Date())
+                    .add(+6, 'day')
+                    .toDate(),
+                ]
+              : date
+          }
         />
       </div>
     </div>

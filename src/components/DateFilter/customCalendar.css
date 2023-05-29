@@ -76,7 +76,7 @@
 
 .react-calendar__tile--active,
 .react-calendar__tile--hasActive {
-  background-color: var(--primary-color) !important;
+  background-color: var(--secondary-color) !important;
   color: white !important;
 }
 
@@ -96,6 +96,6 @@
   font-weight: 600;
   font-family: Montserrat-SemiBold, sans-serif;
   text-transform: capitalize;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   border-radius: 2px;
 }

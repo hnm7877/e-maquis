@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowMixVerticalIcon } from '../../assets/svgs/ArrowMixVertical';
+import { COLORS } from '../../assets/constants';
 
 const LIST = [
   {
@@ -22,11 +23,17 @@ const LIST = [
     label: 'Par période',
     value: 'period',
   },
-];
+] as const;
 
-export const DateType = () => {
+export const DateType = ({
+  value,
+  onChange,
+}: {
+  value: (typeof LIST)[number]['value'];
+  onChange: (value: string) => void;
+}) => {
   const [showList, setShowList] = useState(false);
-  const [selected, setSelected] = useState<null | (typeof LIST)[number]>(null);
+  const itemSelected = LIST.find((item) => item.value === value);
 
   return (
     <div className='date-filter-types'>
@@ -36,8 +43,8 @@ export const DateType = () => {
         }`}
         onClick={() => setShowList(!showList)}
       >
-        <p>{selected?.label || 'Choisir'}</p>
-        <ArrowMixVerticalIcon color='#98ed58' />
+        <p>{itemSelected?.label || 'Choisir'}</p>
+        <ArrowMixVerticalIcon color={COLORS.secondary} />
       </div>
 
       <div
@@ -51,7 +58,7 @@ export const DateType = () => {
               key={index}
               className='date-filter-type date-filter-type__list-item'
               onClick={() => {
-                setSelected(item);
+                onChange(item.value);
                 setShowList(false);
               }}
             >

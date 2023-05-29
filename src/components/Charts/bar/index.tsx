@@ -1,30 +1,42 @@
-import { Bar } from 'react-chartjs-2';
+import { Pie, Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+import './bar.css';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    labels: ['Red',
+        'Blue',
+        'Yellow'],
     datasets: [
         {
+            id: 1,
             label: 'Sales',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
         },
     ],
 };
 
-const ChartComponent = () => {
-    return <Bar data={data} />;
+export const ChartComponent = () => {
+    return <Pie data={data} />;
 };
 
-export const ChartComponentBar = () => {
-    return (
-        <div >
-            <div className="card">
-            <h1>Chart Example</h1>
-            <ChartComponent />
-            </div>
-        </div>
-    );
+export const ChartComponentDoughnut = () => {
+    return <Doughnut data={data} />;
 };
+
+
+
+
+
+
+
 

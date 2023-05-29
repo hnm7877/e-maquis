@@ -1,47 +1,7 @@
-import Table from 'react-bootstrap/Table';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../assets/css/bilan.min.css';
-import './table.css';
-import {ChartComponentBar} from "../Charts/bar";
-import {CardBilan} from "../CardBilan";
+import Table from "react-bootstrap/Table";
 
-
-export const ComponentBilan = () => {
+export const TableBilan = () => {
     return (
-      <main >
-        <div >
-
-          <div >
-              <div className="pd-30">
-                  <h4 className="tx-gray-800 mg-b-5">Bilan</h4>
-                  <p className="mg-b-0"></p>
-              </div>
-
-              <div className="br-pagebody mg-t-5 pd-x-30">
-                  <CardBilan/>
-
-                  <div className="row mg-t-20 ">
-                      <div className= "col-lg-12 d-flex  align-content-center">
-
-
-                          <div className="col-lg-7 col-md-12 col-sm-12">
-
-                            <ChartComponentBar/>
-
-                          </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-          </div>
-        </div>
-
-
-
-
         <Table className="table-striped table-bordered table-hover table-responsive">
             <thead>
             <tr>
@@ -81,7 +41,5 @@ export const ComponentBilan = () => {
             </tr>
             </tbody>
         </Table>
-
-      </main>
-    );
-};
+    )
+}

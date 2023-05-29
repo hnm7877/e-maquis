@@ -1,5 +1,5 @@
 import { Filters } from './Filters';
-import {ComponentBilan} from '../../components/Tables';
+import {ComponentBilan} from '../../components/ViewBilan';
 
 import './bilan.css';
 

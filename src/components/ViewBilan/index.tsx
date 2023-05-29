@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
-import {ChartComponent, ChartComponentDoughnut} from "../Charts/bar";
+import {ChartComponent, ChartComponentDoughnut, ChartComponentPolarArea} from "../Charts/bar";
 import {CardBilan} from "../CardBilan";
 import {TableBilan} from "../TableBilan";
 
@@ -22,7 +22,7 @@ export const ComponentBilan = () => {
                   <CardBilan/>
                   <TableBilan/>
 
-                  <div className="row mg-t-20 ">
+                  <div className="row mg-t-20 col-lg-12 col-md-7 col-sm-7">
                       <div className= "col-lg-12 d-flex  align-content-center">
 
                           <div className="col-lg-7 col-md-12 col-sm-12 card_doughnut">
@@ -35,7 +35,6 @@ export const ComponentBilan = () => {
                               <ChartComponent/>
 
                           </div>
-
                       </div>
 
                   </div>
@@ -44,11 +43,6 @@ export const ComponentBilan = () => {
 
           </div>
         </div>
-
-
-
-
-
 
       </main>
     );

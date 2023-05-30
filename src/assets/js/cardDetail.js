@@ -1,11 +1,10 @@
 
 
 import '../../assets/lib/jquery/jquery.js';
-import '../../assets/lib/jquery/jquery.js';
-import 'bootstrap/js/dist/popover.js';
+import '../../assets/lib/popper/popper.js';
 import 'bootstrap/dist/js/bootstrap.js';
 import '../../assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js';
-import '../../assets/lib/moment/moment.js';
+// import '../../assets/lib/moment/moment.js';
 import '../../assets/lib/jquery-ui/jquery-ui.js';
 import '../../assets/lib/jquery-switchbutton/jquery.switchButton.js';
 import '../../assets/lib/peity/jquery.peity.js';

@@ -1,5 +1,5 @@
 
-
+import '../../assets/js/cardDetail.js';
 export const CardDetail = () => {
     return (
         <div className="br-mainpanel">

@@ -1,7 +1,4 @@
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../assets/css/bilan.min.css';
-import './table.css';
 import {
     ChartComponent,
     ChartComponentBar,
@@ -11,6 +8,23 @@ import {
 } from "../Charts/chart";
 import {CardBilan} from "../CardBilan";
 import {TableBilan} from "../TableBilan";
+import {CardDetail} from "../CardBilan/CardDetail.tsx";
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/bilan.min.css';
+import './table.css';
+import '../../assets/lib/font-awesome/css/font-awesome.css';
+import '../../assets/lib/Ionicons/css/ionicons.css';
+import '../../assets/lib/perfect-scrollbar/css/perfect-scrollbar.css';
+import '../../assets/lib/jquery-switchbutton/jquery.switchButton.css';
+import '../../assets/lib/rickshaw/rickshaw.min.css';
+
+
+
+
+
+
 
 
 
@@ -90,6 +104,10 @@ export const ComponentBilan = () => {
               </div>
 
           </div>
+
+            <div>
+                <CardDetail />
+            </div>
         </div>
 
       </main>

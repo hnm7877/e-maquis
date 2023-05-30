@@ -1,15 +1,16 @@
 import Table from "react-bootstrap/Table";
 
 
-import {DataFaker} from '../../assets/js/dataFaker.js';
-
-console.log('index Table: ', DataFaker);
-
 export const TableBilan = () => {
     return (
-        <Table className="table-striped table-bordered table-hover table-responsive">
+        <Table className="table-striped
+        table-bordered
+        table-hover
+        table-responsive"
+        bordered={true}
+        >
             <thead>
-            <tr>
+            <tr className="table-dark en_tete">
                 <th>Catégories</th>
                 <th>Produits</th>
                 <th>Quantités</th>
@@ -39,7 +40,7 @@ export const TableBilan = () => {
                 <td>3000 FCFA</td>
             </tr>
             <tr>
-                <td colSpan='4' />
+                <td colSpan={4} />
                 <td>Total Prix d'achat:  FCFA</td>
                 <td>Total Vente totale:  FCFA</td>
                 <td>Total Bénéfice:  FCFA</td>

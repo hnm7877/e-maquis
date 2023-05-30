@@ -58737,3 +58737,19 @@ a.hover-white-8:hover, a.hover-white-8:focus {
 .mx-wd-1350 {
     max-width: 1350px;
 }
+
+.en_tete th{
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+tr td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+}

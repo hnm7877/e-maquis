@@ -10,6 +10,7 @@ import { Period } from './Period';
 import { helperDate, helperResetDate } from '../../helpers/helperDate';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { filterDateAction } from '../../redux/filters';
+import { ButtonCustom } from '../ButtonCustom';
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
@@ -248,12 +249,7 @@ export const DateFilter = () => {
               onChange={(date) => handleChangeDate(date, 'from')}
             />
           )}
-          <button
-            className='date-filter-dropdown__button'
-            onClick={handleSubmit}
-          >
-            Valider
-          </button>
+          <ButtonCustom onClick={handleSubmit} />
         </div>
       )}
     </div>

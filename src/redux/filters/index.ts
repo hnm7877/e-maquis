@@ -1,5 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export type TUser = {
+  nom: string;
+  prenom: string;
+  email: string;
+  role: string;
+  date: string;
+};
 interface IState {
   date: {
     dateType: string | null;
@@ -7,6 +14,7 @@ interface IState {
     toDate: Date;
     periodType: string | null;
   };
+  users: TUser[];
 }
 
 const initialState: IState = {
@@ -16,6 +24,7 @@ const initialState: IState = {
     toDate: new Date(),
     periodType: null,
   },
+  users: [],
 };
 
 const slice = createSlice({
@@ -26,9 +35,12 @@ const slice = createSlice({
     filterDateAction: (state, action) => {
       state.date = action.payload;
     },
+    filterUsersAction: (state, action) => {
+      state.users = action.payload;
+    },
   },
 });
 
-export const { filterDateAction } = slice.actions;
+export const { filterDateAction, filterUsersAction } = slice.actions;
 
 export default slice.reducer;

@@ -1,5 +1,6 @@
 import { DateFilter } from '../../components/DateFilter';
 import { InputSearch } from '../../components/InputSearch';
+import { UserFilter } from '../../components/UserFilter';
 
 export const Filters = () => {
   return (
@@ -7,6 +8,8 @@ export const Filters = () => {
       {/* <Glyphicon glyph='star' /> */}
       <InputSearch />
       <DateFilter />
+
+      <UserFilter />
 
       {/* 
 

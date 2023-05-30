@@ -6,6 +6,7 @@ import {ChartComponent, ChartComponentBar, ChartComponentDoughnut, ChartComponen
 import {CardBilan} from "../CardBilan";
 import {TableBilan} from "../TableBilan";
 
+import '../../assets/js/dataFaker.js';
 
 export const ComponentBilan = () => {
     return (

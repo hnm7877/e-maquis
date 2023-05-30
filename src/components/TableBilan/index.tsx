@@ -1,5 +1,10 @@
 import Table from "react-bootstrap/Table";
 
+
+import {DataFaker} from '../../assets/js/dataFaker.js';
+
+console.log('index Table: ', DataFaker);
+
 export const TableBilan = () => {
     return (
         <Table className="table-striped table-bordered table-hover table-responsive">

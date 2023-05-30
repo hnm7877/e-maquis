@@ -5,16 +5,11 @@
   align-items: center;
   margin-bottom: 20px;
 }
-/**
- minWidth: '11.5rem',
-    maxWidth: 240,
-    background: THEME.colors.white,
-    top: '0',
-    left: '0',
-    padding: 12,
-    borderRadius: 2,
 
-*/
+.users-filter p {
+  padding: 0;
+  margin: 0;
+}
 
 .users-filter-list {
   position: absolute;
@@ -25,6 +20,7 @@
   left: 0;
   padding: 12px;
   border-radius: 2px;
+  z-index: 1;
 }
 
 .users-filter--selected {

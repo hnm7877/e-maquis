@@ -77,12 +77,14 @@ export const TableBilan = () => {
                 </tr>
               );
             })}
-            <tr>
-              <td colSpan={5} />
-              <td>Total Prix d'achat: {total_achat} FCFA</td>
-              <td>Total Vente totale: {total_ventes}FCFA</td>
-              <td>Total Bénéfice: {benefice} FCFA</td>
-            </tr>
+            {products && products?.length > 0 && (
+              <tr>
+                <td colSpan={5} />
+                <td>Total Prix d'achat: {total_achat} FCFA</td>
+                <td>Total Vente totale: {total_ventes}FCFA</td>
+                <td>Total Bénéfice: {benefice} FCFA</td>
+              </tr>
+            )}
           </>
         )}
       </tbody>

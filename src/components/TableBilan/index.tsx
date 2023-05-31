@@ -70,10 +70,10 @@ export const TableBilan = () => {
                   <td>{product.nom}</td>
                   <td>{product.quantite}</td>
                   <td>{product.taille}</td>
-                  <td>{product.prix_achat}</td>
-                  <td>{product.prix_vente}</td>
-                  <td>{product.total_vente}</td>
-                  <td>{product.benefice}</td>
+                  <td>{product.prix_achat} FCFA</td>
+                  <td>{product.prix_vente} FCFA</td>
+                  <td>{product.total_vente} FCFA</td>
+                  <td>{product.benefice} FCFA</td>
                 </tr>
               );
             })}

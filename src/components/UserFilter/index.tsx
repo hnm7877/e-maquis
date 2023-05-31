@@ -1,46 +1,24 @@
 import { useEffect, useState } from 'react';
 import { User } from './User';
 import './userFilter.css';
-import { TUser, filterUsersAction } from '../../redux/filters';
+import { filterUsersAction } from '../../redux/filters';
 import { ButtonCustom } from '../ButtonCustom';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
-
-const users: TUser[] = [
-  {
-    nom: 'Aniki',
-    prenom: 'K.O',
-    email: 'aniki@gmail.com',
-    role: 'admin',
-    date: '12/12/2020',
-  },
-  {
-    nom: 'Hermano',
-    prenom: 'K.O',
-    email: 'hermano@gmail.com',
-    role: 'admin',
-    date: '12/12/2020',
-  },
-
-  {
-    nom: 'Ouattara',
-    prenom: 'Mory',
-    email: 'aniki@gmail.com',
-    role: 'admin',
-    date: '12/12/2020',
-  },
-];
+import { TEmployee, getEmployees } from '../../api/employees';
+import { useQuery } from 'react-query';
 
 export const UserFilter = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [usersSelected, setUsersSelected] = useState<TUser[]>([]);
-
+  const [usersSelected, setUsersSelected] = useState<TEmployee[]>([]);
   const usersRedux = useAppSelector((s) => s.filters.users);
 
-  const handleClick = (user: TUser) => {
+  const { data: users, isLoading } = useQuery('employes', getEmployees);
+
+  const handleClick = (user: TEmployee) => {
     setUsersSelected((prevUsers) => {
-      if (prevUsers.find((u) => u.nom === user.nom)) {
-        return prevUsers.filter((u) => u.nom !== user.nom);
+      if (prevUsers.find((u) => u._id === user._id)) {
+        return prevUsers.filter((u) => u._id !== user._id);
       } else {
         return [...prevUsers, user];
       }
@@ -71,21 +49,24 @@ export const UserFilter = () => {
       </div>
       {isOpen && (
         <div className='users-filter-list'>
-          {users.map((user) => {
-            const checked = usersSelected.find((u) => u.nom === user.nom);
-            return (
-              <User
-                name={`${user?.nom} ${user?.prenom}(${user?.role})`}
-                checked={!!checked}
-                setChecked={() => {
-                  handleClick(user);
-                }}
-                handleClick={() => {
-                  handleClick(user);
-                }}
-              />
-            );
-          })}
+          {isLoading && <p>Chargement...</p>}
+          {!isLoading &&
+            users?.map((user) => {
+              const checked = usersSelected.find((u) => u._id === user._id);
+              return (
+                <User
+                  name={`${user?.nom} ${user?.prenom}(${user?.role})`}
+                  checked={!!checked}
+                  setChecked={() => {
+                    handleClick(user);
+                  }}
+                  handleClick={() => {
+                    handleClick(user);
+                  }}
+                  key={user._id}
+                />
+              );
+            })}
 
           <ButtonCustom onClick={handleSubmit} />
         </div>

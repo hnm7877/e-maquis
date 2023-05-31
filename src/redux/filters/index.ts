@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { TEmployee } from '../../api/employees';
 
-export type TUser = {
-  nom: string;
-  prenom: string;
-  email: string;
-  role: string;
-  date: string;
-};
 interface IState {
   date: {
     dateType: string | null;
@@ -14,7 +8,7 @@ interface IState {
     toDate: Date;
     periodType: string | null;
   };
-  users: TUser[];
+  users: TEmployee[];
 }
 
 const initialState: IState = {

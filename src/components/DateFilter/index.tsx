@@ -89,7 +89,7 @@ export const DateFilter = () => {
     // date to date and time
     const newToDate = new Date(helperDate(toDate, 'MM/DD/YYYY'));
     if (dateType !== 'period') {
-      switch (periodType) {
+      switch (dateType) {
         case 'equal':
           dispatch(
             filterDateAction({
@@ -99,6 +99,26 @@ export const DateFilter = () => {
             })
           );
           break;
+
+        case 'before':
+          dispatch(
+            filterDateAction({
+              fromDate: null,
+              toDate: newToDate,
+              dateType: dateType,
+            })
+          );
+          break;
+        case 'after':
+          dispatch(
+            filterDateAction({
+              fromDate: newFromDate,
+              toDate: null,
+              dateType: dateType,
+            })
+          );
+          break;
+
         default:
           dispatch(
             filterDateAction({
@@ -189,7 +209,12 @@ export const DateFilter = () => {
                 ['before', 'after'].includes(dateRedux.dateType) &&
                 beforeText}{' '}
               <span className='date-filter-time__date'>
-                {helperDate(dateRedux.fromDate, 'DD/MM/YYYY')}
+                {helperDate(
+                  dateRedux.dateType === 'after'
+                    ? dateRedux.fromDate
+                    : dateRedux.toDate,
+                  'DD/MM/YYYY'
+                )}
               </span>
             </>
           )}
@@ -224,7 +249,8 @@ export const DateFilter = () => {
               <DateAndHour
                 dateType={date.dateType === 'before' ? 'to' : 'from'}
                 date={
-                  date[(date.dateType === 'before' ? 'to' : 'from') + 'Date']
+                  date[(date.dateType === 'before' ? 'to' : 'from') + 'Date'] ||
+                  new Date()
                 }
                 onChange={handleChangeDate}
               />
@@ -233,7 +259,7 @@ export const DateFilter = () => {
                   <p className='date-filter-dropdown-between'>Et</p>
                   <DateAndHour
                     dateType='to'
-                    date={date.toDate}
+                    date={date.toDate || new Date()}
                     onChange={handleChangeDate}
                   />
                 </>

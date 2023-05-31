@@ -45,7 +45,7 @@ export const ComponentBilan = () => {
                   <div className="container">
                       <div className="row justify-content-around">
                           <div className="col-lg-12 col-md-6 col-sm-12">
-                              <h2></h2>
+                              <h2>Category product for price </h2>
                               <ChartComponentBar />
                           </div>
 

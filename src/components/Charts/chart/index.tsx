@@ -31,13 +31,13 @@ const data = {
 };
 
 const dataDoubleChart = {
-    labels: ['January', 'February', 'March'],
+    labels: ['January', 'February', 'March', 'April'],
 
     datasets: [
         {
             type: 'line' as const,
-            label: 'Sales',
-            data: [300, 150, 200],
+            label: 'category',
+            data: [300, 150, 200,1290],
             backgroundColor: [
                 'rgba(255,99,132,0.53)',
                 'rgba(54,162,235,0.42)',
@@ -48,7 +48,7 @@ const dataDoubleChart = {
         },
         {
             type: 'bar' as const,
-            label: 'Sales',
+            label: 'price',
             data: [300, 150, 200],
             backgroundColor: [
                 'rgba(255,99,132,0.53)',

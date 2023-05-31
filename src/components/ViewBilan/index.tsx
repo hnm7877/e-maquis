@@ -23,12 +23,6 @@ import '../../assets/lib/rickshaw/rickshaw.min.css';
 import '../../assets/js/cardDetail.js';
 
 
-
-
-
-
-
-
 export const ComponentBilan = () => {
     return (
       <main >
@@ -50,12 +44,11 @@ export const ComponentBilan = () => {
                   </div>
                   <div className="container">
                       <div className="row justify-content-around">
-                          <div className="col-lg-5 col-md-6 col-sm-12">
+                          <div className="col-lg-12 col-md-6 col-sm-12">
+                              <h2></h2>
                               <ChartComponentBar />
                           </div>
-                          <div className="col-lg-5 col-md-6 col-sm-12">
-                              <ChartComponentBar />
-                          </div>
+
                       </div>
                   </div>
 

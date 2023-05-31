@@ -13,6 +13,7 @@ const data = {
 
     datasets: [
         {
+
             id: 1,
             label: 'Sales',
             data: [300, 150, 200],
@@ -26,6 +27,40 @@ const data = {
         },
 
     ],
+
+};
+
+const dataDoubleChart = {
+    labels: ['January', 'February', 'March'],
+
+    datasets: [
+        {
+            type: 'line' as const,
+            label: 'Sales',
+            data: [300, 150, 200],
+            backgroundColor: [
+                'rgba(255,99,132,0.53)',
+                'rgba(54,162,235,0.42)',
+                'rgba(255,205,86,0.45)'
+            ],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+        },
+        {
+            type: 'bar' as const,
+            label: 'Sales',
+            data: [300, 150, 200],
+            backgroundColor: [
+                'rgba(255,99,132,0.53)',
+                'rgba(54,162,235,0.42)',
+                'rgba(255,205,86,0.45)'
+            ],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+        },
+
+    ],
+
 
 };
 
@@ -120,7 +155,7 @@ export const ChartComponentDoughnut = () => {
  };
 
 export const ChartComponentBar = () => {
-    return <Chart type='bar' data={data} options={options}/>;
+    return <Chart type='bar' data={dataDoubleChart} options={options}/>;
 };
 
 export const ChartComponentBarHorizontal = () => {

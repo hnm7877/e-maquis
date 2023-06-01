@@ -36,7 +36,7 @@ const dataDoubleChart = {
     datasets: [
         {
             type: 'line' as const,
-            label: 'price',
+            label: 'Chiffre d\'affaire',
             data: [300, 150, 200,1290],
             backgroundColor: [
                 'rgba(255,99,132,0.53)',
@@ -48,7 +48,7 @@ const dataDoubleChart = {
         },
         {
             type: 'bar' as const,
-            label: 'category',
+            label: 'Catégories de boisson',
             data: [300, 150, 200],
             backgroundColor: [
                 'rgba(255,99,132,0.53)',

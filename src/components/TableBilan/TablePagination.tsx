@@ -37,26 +37,32 @@ export const TablePagination = ({
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
           />
-          {/* {page > 1 && (
-          <Pagination.Item onClick={() => setPage(page - 1)}>
-            {page - 1}
-          </Pagination.Item>
-        )} */}
-          {new Array(nbPages).fill(0).map((_, i) => (
-            <Pagination.Item
-              key={i}
-              active={i + 1 === page}
-              onClick={() => setPage(i + 1)}
-            >
-              {i + 1}
-            </Pagination.Item>
-          ))}
 
-          {/* {page < nbPages && (
-          <Pagination.Item onClick={() => setPage(page + 1)}>
-            {page + 1}
-          </Pagination.Item>
-        )} */}
+          {new Array(nbPages).fill(0).map((_, i) => {
+            const pageNumber = i + 1;
+            if (
+              pageNumber === 1 ||
+              pageNumber === nbPages ||
+              (pageNumber >= page - 1 && pageNumber <= page + 1)
+            ) {
+              return (
+                <Pagination.Item
+                  key={pageNumber}
+                  active={pageNumber === page}
+                  onClick={() => setPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Pagination.Item>
+              );
+            }
+
+            if (pageNumber === page - 2 || pageNumber === page + 2) {
+              return <Pagination.Ellipsis key={pageNumber} />;
+            }
+
+            return null;
+          })}
+
           <Pagination.Next
             onClick={() => setPage(page + 1)}
             disabled={page === nbPages}

@@ -202,15 +202,19 @@ export const ChartComponentBar = () => {
           }),
         };
       }),
-      //   ...Object.values(categoriesDataLine).map((categorie: any) => {
-      //     return {
-      //       type: 'line' as const,
-      //       label: categorie.label,
-      //       data: categorie.data,
-      //       borderWidth: 1,
-
-      //     };
-      //   }),
+       // ...Object.values(categoriesDataBar).map((categorie: any) => {
+       //        return {
+       //          type: 'line' as const,
+       //          label: categorie.label,
+       //          data: categorie.data,
+       //          borderWidth: 1,
+       //          backgroundColor: categorie.data.map(() => {
+       //            return `rgba(${Math.floor(Math.random() * 255)},${Math.floor(
+       //              Math.random() * 255
+       //            )},${Math.floor(Math.random() * 255)},0.5)`;
+       //          }),
+       //        };
+       //      }),
     ],
   };
   return <Chart type='bar' data={data} options={options} />;

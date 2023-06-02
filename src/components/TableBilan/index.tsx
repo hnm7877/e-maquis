@@ -1,19 +1,11 @@
 import { Table } from 'react-bootstrap';
-import { useQuery } from 'react-query';
-import { getVentesByDate } from '../../api/ventes';
-import { useAppSelector } from '../../hooks/useRedux';
 import { TablePagination } from './TablePagination';
 import { useState } from 'react';
 import './tableBilan.css';
+import { useProducts } from '../../hooks/useProducts';
 
 export const TableBilan = () => {
-  const date = useAppSelector((s) => s.filters.date);
-  const users = useAppSelector((s) => s.filters.users);
-
-  const { data: products, isLoading } = useQuery(
-    ['getVentesByDate', date, users],
-    () => getVentesByDate({ date, users: users.map((user) => user._id) })
-  );
+  const { products, isLoading } = useProducts();
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);

@@ -8,12 +8,9 @@ import {
   LinearScale,
   Title,
 } from 'chart.js';
+import './chart.css';
 
 ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title);
-
-import './chart.css';
-import { useProducts } from '../../../hooks/useProducts';
-import { helperDate } from '../../../helpers/helperDate';
 
 const data = {
   labels: ['January', 'February', 'March'],
@@ -119,101 +116,6 @@ export const ChartComponentDoughnut = () => {
 
 export const ChartComponentPolarArea = () => {
   return <Chart type='radar' data={data} />;
-};
-
-export const ChartComponentBar = () => {
-  const { products } = useProducts();
-
-  const filterProductByDate = products?.reduce((acc: any, product: any) => {
-    const date = helperDate(product.createdAt, 'MM/YYYY');
-
-    if (acc[date]) {
-      acc[date] = [...acc[date], product];
-    } else {
-      acc[date] = [product];
-    }
-    return acc;
-  }, {});
-
-  const keyOfFilterProductByDate = Object.keys(filterProductByDate || {});
-
-  const categories_quantite = keyOfFilterProductByDate?.map((date) => {
-    return filterProductByDate[date].reduce((acc: any, product: any) => {
-      if (acc[product.categorie]) {
-        acc[product.categorie] += product.quantite;
-      } else {
-        acc[product.categorie] = product.quantite;
-      }
-      return acc;
-    }, {});
-  });
-
-  //   const categories_total_vente = keyOfFilterProductByDate?.map((date) => {
-  //     return filterProductByDate[date].reduce((acc: any, product: any) => {
-  //       if (acc[product.categorie]) {
-  //         acc[product.categorie] += product.total_vente;
-  //       } else {
-  //         acc[product.categorie] = product.total_vente;
-  //       }
-  //       return acc;
-  //     }, {});
-  //   });
-
-  const categoriesDataBar = categories_quantite?.reduce(
-    (acc: any, categorie: any) => {
-      const keyOfCategorie = Object.keys(categorie);
-
-      keyOfCategorie.forEach((key) => {
-        if (acc[key]) {
-          acc[key] = {
-            ...acc[key],
-            data: [...acc[key].data, categorie[key]],
-          };
-        } else {
-          acc[key] = {
-            label: key,
-            data: [categorie[key]],
-          };
-        }
-      });
-
-      return acc;
-    },
-    {}
-  );
-
-  const data = {
-    labels: keyOfFilterProductByDate
-      ?.map((date) =>
-        helperDate(date.slice(0, 2) + '/01' + date.slice(2), 'MMM')
-      )
-      .reverse(),
-    datasets: [
-      ...Object.values(categoriesDataBar).map((categorie: any) => {
-        return {
-          type: 'bar' as const,
-          label: categorie.label,
-          data: categorie.data,
-          borderWidth: 1,
-          backgroundColor: categorie.data.map(() => {
-            return `rgba(${Math.floor(Math.random() * 255)},${Math.floor(
-              Math.random() * 255
-            )},${Math.floor(Math.random() * 255)},0.5)`;
-          }),
-        };
-      }),
-      //   ...Object.values(categoriesDataLine).map((categorie: any) => {
-      //     return {
-      //       type: 'line' as const,
-      //       label: categorie.label,
-      //       data: categorie.data,
-      //       borderWidth: 1,
-
-      //     };
-      //   }),
-    ],
-  };
-  return <Chart type='bar' data={data} options={options} />;
 };
 
 export const ChartComponentBarHorizontal = () => {

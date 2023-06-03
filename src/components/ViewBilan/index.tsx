@@ -20,6 +20,7 @@ import '../../assets/lib/jquery-switchbutton/jquery.switchButton.css';
 import '../../assets/lib/rickshaw/rickshaw.min.css';
 
 import '../../assets/js/cardDetail.js';
+import { ChartBar } from '../Charts/chart/Bar.tsx';
 
 export const ComponentBilan = () => {
   return (
@@ -43,7 +44,7 @@ export const ComponentBilan = () => {
               <div className='row justify-content-around'>
                 <div className='col-lg-12 col-md-6 col-sm-12'>
                   <h2>Category product for price </h2>
-                  <ChartComponentBar />
+                  <ChartBar />
                 </div>
               </div>
             </div>

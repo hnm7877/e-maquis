@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useProducts } from '../../../hooks/useProducts';
 import { helperDate } from '../../../helpers/helperDate';
 import { Chart } from 'react-chartjs-2';
+import { all } from 'axios';
 
 const options = {
   responsive: true,
@@ -29,12 +30,20 @@ export const ChartBar = () => {
 
   const keyOfFilterProductByDate = Object.keys(filterProductByDate || {});
 
+  const allCategories = products?.reduce((arr, acc) => {
+    if (arr.find((categorie: any) => categorie._id === acc.categorie._id)) {
+      return arr;
+    } else {
+      return [...arr, acc.categorie];
+    }
+  }, [] as any);
+
   const categories_quantite = keyOfFilterProductByDate?.map((date) => {
     return filterProductByDate[date].reduce((acc: any, product: any) => {
-      if (acc[product.categorie]) {
-        acc[product.categorie] += product.quantite;
+      if (acc[product.categorie.nom]) {
+        acc[product.categorie.nom] += product.quantite;
       } else {
-        acc[product.categorie] = product.quantite;
+        acc[product.categorie.nom] = product.quantite;
       }
       return acc;
     }, {});
@@ -42,10 +51,10 @@ export const ChartBar = () => {
 
   const categories_total_vente = keyOfFilterProductByDate?.map((date) => {
     return filterProductByDate[date].reduce((acc: any, product: any) => {
-      if (acc[product.categorie]) {
-        acc[product.categorie] += product.total_vente;
+      if (acc[product.categorie.nom]) {
+        acc[product.categorie.nom] += product.total_vente;
       } else {
-        acc[product.categorie] = product.total_vente;
+        acc[product.categorie.nom] = product.total_vente;
       }
       return acc;
     }, {});
@@ -87,6 +96,7 @@ export const ChartBar = () => {
         } else {
           acc[key] = {
             label: key,
+
             data: [categorie[key]],
           };
         }
@@ -111,11 +121,10 @@ export const ChartBar = () => {
               label: categorie.label,
               data: categorie.data,
               borderWidth: 1,
-              backgroundColor: categorie.data.map(() => {
-                return `rgba(${Math.floor(Math.random() * 255)},${Math.floor(
-                  Math.random() * 255
-                )},${Math.floor(Math.random() * 255)},0.5)`;
-              }),
+              backgroundColor: [
+                allCategories?.find((cat: any) => cat.nom === categorie.label)
+                  .color,
+              ],
             };
           })
         : Object.values(categoriesDataLine).map((categorie: any) => {
@@ -124,6 +133,10 @@ export const ChartBar = () => {
               label: categorie.label,
               data: categorie.data,
               borderWidth: 1,
+              backgroundColor: [
+                allCategories?.find((cat: any) => cat.nom === categorie.label)
+                  .color,
+              ],
             };
           }),
   };

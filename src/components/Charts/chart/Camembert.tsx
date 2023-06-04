@@ -2,6 +2,7 @@ import { Chart } from 'react-chartjs-2';
 import { useProducts } from '../../../hooks/useProducts';
 import { TEmployee } from '../../../api/employees';
 import { useState } from 'react';
+import { TCategorie } from '../../../api/ventes';
 
 const options = {
   responsive: true,
@@ -19,12 +20,12 @@ export const ChartCamembert = () => {
   );
 
   const categories = products?.reduce((arr, acc) => {
-    if (arr.includes(acc.categorie)) {
+    if (arr.find((categorie) => categorie._id === acc.categorie._id)) {
       return arr;
     } else {
       return [...arr, acc.categorie];
     }
-  }, [] as string[]);
+  }, [] as TCategorie[]);
 
   const employes: TEmployee[] =
     products?.reduce((arr, acc) => {
@@ -39,17 +40,18 @@ export const ChartCamembert = () => {
     products?.reduce(
       (acc, product) => {
         if (acc[product.employe._id]) {
-          if (acc[product.employe._id].data[product.categorie]) {
-            acc[product.employe._id].data[product.categorie] +=
+          if (acc[product.employe._id].data[product.categorie.nom]) {
+            acc[product.employe._id].data[product.categorie.nom] +=
               product.quantite;
           } else {
-            acc[product.employe._id].data[product.categorie] = product.quantite;
+            acc[product.employe._id].data[product.categorie.nom] =
+              product.quantite;
           }
         } else {
           acc[product.employe._id] = {
             label: product.employe.nom,
             data: {
-              [product.categorie]: product.quantite,
+              [product.categorie.nom]: product.quantite,
             },
           };
         }
@@ -67,10 +69,10 @@ export const ChartCamembert = () => {
 
   const categories_quantite =
     products?.reduce((acc, product) => {
-      if (acc[product.categorie]) {
-        acc[product.categorie] += product.quantite;
+      if (acc[product.categorie.nom]) {
+        acc[product.categorie.nom] += product.quantite;
       } else {
-        acc[product.categorie] = product.quantite;
+        acc[product.categorie.nom] = product.quantite;
       }
       return acc;
     }, {} as { [key: string]: number }) || {};
@@ -78,19 +80,16 @@ export const ChartCamembert = () => {
   const dataSets = [
     {
       id: 1,
-      label: 'Sales',
+      label: 'quantité',
       data: employeeSelectedId
         ? categories?.map(
-            (cat) => filterProductsByEmploye[employeeSelectedId].data[cat] || 0
+            (cat) =>
+              filterProductsByEmploye[employeeSelectedId].data[cat.nom] || 0
           )
-        : categories?.map((cat) => categories_quantite[cat] || 0),
-      backgroundColor: [
-        'rgba(255,99,132,0.53)',
-        'rgba(54,162,235,0.42)',
-        'rgba(255,205,86,0.45)',
-      ],
-      borderColor: 'rgba(75, 192, 192, 1)',
-      borderWidth: 1,
+        : categories?.map((cat) => categories_quantite[cat.nom] || 0),
+      backgroundColor: categories?.map((cat) => cat.color),
+      borderWidth: 2,
+      borderColor: categories?.map((cat) => cat.color),
     },
   ];
 
@@ -123,7 +122,7 @@ export const ChartCamembert = () => {
         <Chart
           type='pie'
           data={{
-            labels: categories || [],
+            labels: categories?.map((cat) => cat.nom) || [],
             datasets: dataSets,
           }}
           options={options}

@@ -17,7 +17,9 @@ export const TableBilan = () => {
       ? products?.filter((product) => {
           return (
             product.nom.toLowerCase().includes(search.toLowerCase()) ||
-            product.categorie.toLowerCase().includes(search.toLowerCase()) ||
+            product.categorie.nom
+              .toLowerCase()
+              .includes(search.toLowerCase()) ||
             product.taille.toLowerCase().includes(search.toLowerCase())
           );
         })
@@ -88,7 +90,7 @@ export const TableBilan = () => {
                 {productsPaginated?.map((product) => {
                   return (
                     <tr>
-                      <td>{product.categorie}</td>
+                      <td>{product.categorie.nom}</td>
                       <td>{product.nom}</td>
                       <td>{product.quantite}</td>
                       <td>{product.taille}</td>

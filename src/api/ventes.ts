@@ -1,8 +1,15 @@
 import { axiosInstance } from './axiosInstance';
+import { TEmployee } from './employees';
 
-type TVente = {
+export type TCategorie = {
   nom: string;
-  categorie: string;
+  color: string;
+  _id: string;
+};
+
+export type TVente = {
+  nom: string;
+  categorie: TCategorie;
   prix_vente: number;
   prix_achat: number;
   quantite: number;
@@ -11,6 +18,7 @@ type TVente = {
   productId: string;
   total_vente: number;
   benefice: number;
+  employe: TEmployee;
 };
 
 export const getVentesByDate = async (filter: {

@@ -1,6 +1,4 @@
-import { SVGProps } from 'react';
-
-export const CalendarIcon = (props: SVGProps<SVGSVGElement>) => (
+export const CalendarIcon = () => (
   <svg
     width='10'
     height='10'

@@ -82,4 +82,4 @@ export const SIDEBAR_DATA = [
       },
     ],
   },
-];
+] as const;

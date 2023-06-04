@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useProducts } from '../../../hooks/useProducts';
 import { helperDate } from '../../../helpers/helperDate';
 import { Chart } from 'react-chartjs-2';
-import { all } from 'axios';
 
 const options = {
   responsive: true,

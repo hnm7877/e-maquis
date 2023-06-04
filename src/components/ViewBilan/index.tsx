@@ -1,10 +1,6 @@
 import {
-  ChartComponent,
-  ChartComponentBar,
   ChartComponentBarHorizontal,
-  ChartComponentDoughnut,
   ChartComponentLine,
-  ChartComponentPolarArea,
 } from '../Charts/chart';
 import { CardBilan } from '../CardBilan';
 import { TableBilan } from '../TableBilan';
@@ -20,7 +16,7 @@ import '../../assets/lib/jquery-switchbutton/jquery.switchButton.css';
 import '../../assets/lib/rickshaw/rickshaw.min.css';
 
 import '../../assets/js/cardDetail.js';
-import { ChartBar } from '../Charts/chart/Bar.tsx';
+import { ChartBar, ChartPerformance, ChartCamembert } from '../Charts/chart';
 
 export const ComponentBilan = () => {
   return (
@@ -51,22 +47,8 @@ export const ComponentBilan = () => {
 
             <div className='row mg-t-20'>
               <div className='col-lg-12 col-md-12 col-sm-12 d-flex align-content-around'>
-                <div className='col-lg-4 col-md-6 col-sm-12 mb-3'>
-                  <div className='card_doughnut'>
-                    <ChartComponentDoughnut />
-                  </div>
-                </div>
-                <div className='col-lg-4 col-md-6 col-sm-12 mb-3'>
-                  <div className='card_doughnut'>
-                    <ChartComponent />
-                  </div>
-                </div>
-                <div className='col-lg-4 col-md-12 col-sm-12'>
-                  <div className='card_doughnut'>
-                    <h4 className='tx-gray-800 mg-b-5'>Performance employés</h4>
-                    <ChartComponentPolarArea />
-                  </div>
-                </div>
+                <ChartCamembert />
+                <ChartPerformance />
               </div>
             </div>
 

@@ -9,6 +9,7 @@ interface IState {
     periodType: string | null;
   };
   users: TEmployee[];
+  search: string;
 }
 
 const initialState: IState = {
@@ -19,6 +20,7 @@ const initialState: IState = {
     periodType: null,
   },
   users: [],
+  search: '',
 };
 
 const slice = createSlice({
@@ -32,9 +34,13 @@ const slice = createSlice({
     filterUsersAction: (state, action) => {
       state.users = action.payload;
     },
+    searchAction: (state, action) => {
+      state.search = action.payload;
+    },
   },
 });
 
-export const { filterDateAction, filterUsersAction } = slice.actions;
+export const { filterDateAction, filterUsersAction, searchAction } =
+  slice.actions;
 
 export default slice.reducer;

@@ -3,27 +3,43 @@ import { TablePagination } from './TablePagination';
 import { useState } from 'react';
 import './tableBilan.css';
 import { useProducts } from '../../hooks/useProducts';
+import { useAppSelector } from '../../hooks/useRedux';
 
 export const TableBilan = () => {
   const { products, isLoading } = useProducts();
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const nbPages = products ? Math.ceil(products?.length / rowsPerPage) : 0;
+  const search = useAppSelector((s) => s.filters.search);
 
-  const total_ventes = products?.reduce((acc, product) => {
+  const allProducts =
+    (search
+      ? products?.filter((product) => {
+          return (
+            product.nom.toLowerCase().includes(search.toLowerCase()) ||
+            product.categorie.toLowerCase().includes(search.toLowerCase()) ||
+            product.taille.toLowerCase().includes(search.toLowerCase())
+          );
+        })
+      : products) || [];
+
+  const nbPages = allProducts
+    ? Math.ceil(allProducts?.length / rowsPerPage)
+    : 0;
+
+  const total_ventes = allProducts?.reduce((acc, product) => {
     return acc + product.total_vente;
   }, 0);
 
-  const benefice = products?.reduce((acc, product) => {
+  const benefice = allProducts?.reduce((acc, product) => {
     return acc + product.benefice;
   }, 0);
 
-  const total_achat = products?.reduce((acc, product) => {
+  const total_achat = allProducts?.reduce((acc, product) => {
     return acc + product.prix_achat * product.quantite;
   }, 0);
 
-  const productsPaginated = products?.slice(
+  const productsPaginated = allProducts?.slice(
     (page - 1) * rowsPerPage,
     page * rowsPerPage
   );
@@ -103,14 +119,14 @@ export const TableBilan = () => {
         </Table>
       </div>
 
-      {products && products.length > 0 && (
+      {products && allProducts?.length > 0 && (
         <TablePagination
           nbPages={nbPages}
           page={page}
           setPage={setPage}
           rowsPerPage={rowsPerPage}
           setRowsPerPage={setRowsPerPage}
-          total={products.length}
+          total={allProducts?.length}
         />
       )}
     </>

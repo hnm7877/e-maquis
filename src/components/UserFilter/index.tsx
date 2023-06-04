@@ -31,7 +31,7 @@ export const UserFilter = () => {
   };
 
   useEffect(() => {
-    if (usersRedux.length) {
+    if (usersRedux?.length) {
       setUsersSelected(usersRedux);
     }
   }, [usersRedux]);

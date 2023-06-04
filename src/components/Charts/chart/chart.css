@@ -1,5 +1,5 @@
 .card_doughnut {
-  width: 70%;
+  width: 90%;
   height: 90%;
   margin: 10px 0 50px 0;
   background-color: #fff;
@@ -14,7 +14,8 @@
   gap: 1rem;
 }
 
-.chart__section-bar__button {
+.chart__section-bar__button,
+.chart-camembert__employee {
   min-width: 100px;
   height: 35px;
   border-radius: 5px;
@@ -25,7 +26,8 @@
   text-transform: capitalize;
 }
 
-.chart__section-bar__button--active {
+.chart__section-bar__button--active,
+.chart-camembert__employee--active {
   background-color: var(--secondary-color);
   color: #fff;
 }

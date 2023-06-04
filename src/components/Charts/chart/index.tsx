@@ -10,6 +10,10 @@ import {
 } from 'chart.js';
 import './chart.css';
 
+export { ChartBar } from './Bar';
+export { ChartPerformance } from './ChartPerformance';
+export { ChartCamembert } from './Camembert';
+
 ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title);
 
 const data = {
@@ -112,10 +116,6 @@ export const ChartComponent = () => {
 
 export const ChartComponentDoughnut = () => {
   return <Chart type='doughnut' data={data} />;
-};
-
-export const ChartComponentPolarArea = () => {
-  return <Chart type='radar' data={data} />;
 };
 
 export const ChartComponentBarHorizontal = () => {

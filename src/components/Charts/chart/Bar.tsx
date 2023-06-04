@@ -143,7 +143,7 @@ export const ChartBar = () => {
           );
         })}
       </div>
-      <Chart type='bar' data={data} options={options} />;
+      <Chart type='bar' data={data} options={options} />
     </>
   );
 };

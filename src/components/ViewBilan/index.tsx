@@ -24,12 +24,12 @@ export const ComponentBilan = () => {
               <CardBilan />
             </div>
 
-            <div className='mt-5'>
+            <div className='mt-5 col-lg-12 col-md-12 col-sm-12'>
               <TableBilan />
             </div>
             <div className='container'>
-              <div className='row justify-content-around'>
-                <div className='col-lg-12 col-md-6 col-sm-12'>
+              <div className='row d-grid'>
+                <div className='col-lg-12 col-md-12 col-sm-12'>
                   <h2>Category product for price </h2>
                   <ChartBar />
                 </div>
@@ -37,7 +37,7 @@ export const ComponentBilan = () => {
             </div>
 
             <div className='row mg-t-20'>
-              <div className='col-lg-12 col-md-12 col-sm-12 d-flex align-content-around'>
+              <div className=' d-flex flex-wrap'>
                 <ChartCamembert />
                 <ChartPerformance />
               </div>

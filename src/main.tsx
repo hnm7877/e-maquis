@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './assets/themify-icons/themify-icons.css';
 import './index.css';
 import { AppRouter } from './routers/index.tsx';
 import { RouterProvider } from 'react-router-dom';

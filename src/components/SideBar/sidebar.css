@@ -5,7 +5,7 @@
   padding-bottom: 50px;
   position: fixed;
   width: 270px;
-  z-index: 999;
+  z-index: 9999;
   overflow: hidden;
   overflow-y: auto;
   background: #ffffff;
@@ -49,8 +49,17 @@
   border-radius: 0.25rem;
 }
 
+.list-group-item {
+  padding: 0;
+}
+
 .sidebar #sidebar_menu > li {
   margin-left: 0px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .sidebar #sidebar_menu > li ul {
@@ -206,7 +215,7 @@
 
 /* line 390, G:/admin_project/8 admin/management_html/scss/_sidebar.scss */
 .sidebar #sidebar_menu > li ul {
-  padding: 0px 0px 5px 40px;
+  /* padding: 0px 0px 5px 40px; */
   background: transparent;
   border-radius: 0 0 4px 4px;
   margin-left: 30px;
@@ -301,17 +310,15 @@
 }
 
 .profile_info_details .side-deconnexion {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
+  display: block !important;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   font-family: Poppins, serif;
   text-align: center;
-  padding: 10px 0;
   background-color: #dc3545;
   border-color: #dc3545;
+  margin: 0 auto;
+  padding: 10px 0 !important;
 }
 
 .has-arrow::after {
@@ -344,4 +351,26 @@
 .sub-menu .list-group {
   min-height: 0;
   overflow: hidden;
+}
+
+.sidebar::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background-color: #ddd;
+}
+
+/* line 525, G:/admin_project/8 admin/management_html/scss/_sidebar.scss */
+.sidebar::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: #ddd;
+}
+
+/* line 530, G:/admin_project/8 admin/management_html/scss/_sidebar.scss */
+.sidebar::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: #f8dbdd;
+}
+
+.offcanvas-backdrop.show {
+  opacity: 0.5;
 }

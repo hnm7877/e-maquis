@@ -14,7 +14,7 @@ const options = {
 
 export const ChartBar = () => {
   const { products } = useProducts();
-  const [section, setSection] = useState('montant');
+  const [section, setSection] = useState('quantite');
 
   const filterProductByDate = products?.reduce((acc: any, product: any) => {
     const date = helperDate(product.createdAt, 'MM/YYYY');
@@ -65,10 +65,7 @@ export const ChartBar = () => {
 
       keyOfCategorie.forEach((key) => {
         if (acc[key]) {
-          acc[key] = {
-            ...acc[key],
-            data: [...acc[key].data, categorie[key]],
-          };
+          acc[key].data.push(categorie[key]);
         } else {
           acc[key] = {
             label: key,
@@ -88,10 +85,7 @@ export const ChartBar = () => {
 
       keyOfCategorie.forEach((key) => {
         if (acc[key]) {
-          acc[key] = {
-            ...acc[key],
-            data: [...acc[key].data, categorie[key]],
-          };
+          acc[key].data.push(categorie[key]);
         } else {
           acc[key] = {
             label: key,
@@ -155,7 +149,7 @@ export const ChartBar = () => {
           );
         })}
       </div>
-      <Chart type='bar' data={data} options={options} />
+      <Chart type='bar' data={data} options={options} key={section} />
     </>
   );
 };

@@ -46,7 +46,7 @@ export const ChartPerformance = () => {
 
   return (
     <div className='col-lg-6 col-md-6 col-sm-12'>
-        <h4 className='tx-gray-800 mg-b-5'>Performance employés</h4>
+        <h4 className='tx-gray-800 mg-b-5'>Performance</h4>
       <div className='card_doughnut'>
 
         <Chart

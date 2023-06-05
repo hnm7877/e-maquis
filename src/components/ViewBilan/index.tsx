@@ -11,7 +11,7 @@ import { ChartBar, ChartPerformance, ChartCamembert } from '../Charts/chart';
 
 export const ComponentBilan = () => {
   return (
-    <main>
+    <main className="br-pagebody mg-t-5 pd-x-30">
       <div>
         <div>
           <div className='pd-30'>
@@ -19,27 +19,32 @@ export const ComponentBilan = () => {
             <p className='mg-b-0'></p>
           </div>
 
-          <div className='br-pagebody mg-t-5 pd-x-30'>
+          <div className='col-lg-12 col-md-12 col-sm-12'>
             <div>
               <CardBilan />
             </div>
 
-            <div className='mt-5 col-lg-12 col-md-12 col-sm-12'>
+            <div className='mt-5 col-lg-12 '>
               <TableBilan />
             </div>
             <div className='container'>
               <div className='row d-grid'>
                 <div className='col-lg-12 col-md-12 col-sm-12'>
-                  <h2>Category product for price </h2>
+                  <h2>Total par Catégories </h2>
                   <ChartBar />
                 </div>
               </div>
             </div>
 
             <div className='row mg-t-20'>
-              <div className=' d-flex flex-wrap'>
-                <ChartCamembert />
-                <ChartPerformance />
+              <div className='row d-flex flex-wrap '>
+                <div className="col-lg-6 col-md-12 col-sm-12">
+                  <ChartCamembert />
+                </div>
+
+                <div className="col-lg-6 col-md-12 col-sm-12">
+                  <ChartPerformance />
+                </div>
               </div>
             </div>
           </div>

@@ -119,7 +119,7 @@ export const ChartCamembert = () => {
           })}
         </div>
       </div>
-      <div className='card_doughnut'>
+      <div className=''>
         <Chart
           type='pie'
           data={{

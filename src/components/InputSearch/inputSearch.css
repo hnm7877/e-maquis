@@ -3,7 +3,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 20%;
   height: 40px;
   background-color: #fff;
   border-radius: 5px;
@@ -21,4 +20,10 @@
   color: #2e4765;
   background-color: transparent;
   padding: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .input-search-container {
+    width: 22%;
+  }
 }

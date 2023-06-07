@@ -19,7 +19,7 @@ export const SideBar = () => {
     <div>
 
 
-        <a className="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+        <a className=" btn-offcanvas" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
            aria-controls="offcanvasExample">
             Accueil
         </a>

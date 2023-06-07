@@ -1,3 +1,23 @@
+.btn-offcanvas{
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background: #98ED58;
+    border-radius: 0 0 0 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-offcanvas:hover{
+  background: #FF9C2C;
+    color: #ffffff;
+}
+
 .sidebar {
   height: 100vh;
   left: 0;
@@ -345,4 +365,25 @@
 .sub-menu .list-group {
   min-height: 0;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Styles spécifiques pour les supports mobiles */
+
+  .large_logo {
+    display: none;
+  }
+
+  .sidebar_close_icon {
+    display: block;
+  }
+
+  .offcanvas-header {
+    padding: 0.5rem;
+  }
+
+  .offcanvas-title {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
 }

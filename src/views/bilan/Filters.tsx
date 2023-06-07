@@ -6,12 +6,17 @@ export const Filters = () => {
   return (
     <div className='bilan-filters'>
       {/* <Glyphicon glyph='star' /> */}
-      <InputSearch />
-      <DateFilter />
+        <div id="inputSearch">
+            <InputSearch />
+        </div>
+
+        <div id="dateFilter">
+            <DateFilter />
+        </div>
 
       <UserFilter />
 
-      {/* 
+      {/*
 
         DATE
         EMPLOYE
@@ -20,7 +25,7 @@ export const Filters = () => {
         // PAR BOISSON
         // PAR CATEGORIE
         // INTERVAL DE PRIX
-        // 
+        //
     */}
     </div>
   );

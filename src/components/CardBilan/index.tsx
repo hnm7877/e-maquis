@@ -1,4 +1,4 @@
-
+import './card.css';
 
 export const CardBilan = () => {
     return (

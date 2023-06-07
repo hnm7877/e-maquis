@@ -1,4 +1,3 @@
-import './card.css';
 
 export const CardDetail = () => {
     return (

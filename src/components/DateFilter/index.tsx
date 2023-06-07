@@ -94,7 +94,7 @@ export const DateFilter = () => {
           dispatch(
             filterDateAction({
               fromDate: newFromDate,
-              toDate: newFromDate,
+              toDate: new Date(new Date(newFromDate).setHours(23, 59, 59, 999)),
               dateType: dateType,
             })
           );
@@ -131,7 +131,7 @@ export const DateFilter = () => {
       }
     } else {
       let date = newFromDate;
-      let nextDay = helperResetDate(newFromDate).add(1, 'day').toDate();
+      let nextDay = new Date(new Date(newFromDate).setHours(23, 59, 59, 999));
 
       switch (periodType) {
         case 'week':
@@ -162,7 +162,12 @@ export const DateFilter = () => {
       }
 
       const nextDayFormat = new Date(
-        helperDate(nextDay, 'MM/DD/YYYY') + ' ' + helperDate(nextDay, 'HH:mm')
+        helperDate(nextDay, 'MM/DD/YYYY') +
+          ' ' +
+          helperDate(
+            new Date(new Date(nextDay).setHours(23, 59, 59)),
+            'HH:mm:ss'
+          )
       );
 
       dispatch(

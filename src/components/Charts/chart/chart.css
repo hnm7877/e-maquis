@@ -1,11 +1,33 @@
-.card_doughnut{
-    width: 70%;
-    height: 90%;
-    margin: 10px 0 50px 0;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    padding: 10px;
-    box-sizing: border-box;
+.card_doughnut {
+  max-width: 90%;
+  height: 90%;
+  margin: 10px 0 50px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+.chart__section-bar {
+  display: flex;
+  gap: 1rem;
+}
+
+.chart__section-bar__button,
+.chart-camembert__employee {
+  min-width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  color: black;
+  text-transform: capitalize;
+}
+
+.chart__section-bar__button--active,
+.chart-camembert__employee--active {
+  background-color: var(--secondary-color);
+  color: #fff;
 }

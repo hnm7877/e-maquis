@@ -1,29 +1,17 @@
-import {
-  ChartComponent,
-  ChartComponentBar,
-  ChartComponentBarHorizontal,
-  ChartComponentDoughnut,
-  ChartComponentLine,
-  ChartComponentPolarArea,
-} from '../Charts/chart';
 import { CardBilan } from '../CardBilan';
 import { TableBilan } from '../TableBilan';
-import { CardDetail } from '../CardBilan/CardDetail.tsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
 import '../../assets/lib/font-awesome/css/font-awesome.css';
 import '../../assets/lib/Ionicons/css/ionicons.css';
-import '../../assets/lib/perfect-scrollbar/css/perfect-scrollbar.css';
-import '../../assets/lib/jquery-switchbutton/jquery.switchButton.css';
-import '../../assets/lib/rickshaw/rickshaw.min.css';
 
-import '../../assets/js/cardDetail.js';
+import { ChartBar, ChartPerformance, ChartCamembert } from '../Charts/chart';
 
 export const ComponentBilan = () => {
   return (
-    <main>
+    <main className="br-pagebody mg-t-5 pd-x-30">
       <div>
         <div>
           <div className='pd-30'>
@@ -31,65 +19,35 @@ export const ComponentBilan = () => {
             <p className='mg-b-0'></p>
           </div>
 
-          <div className='br-pagebody mg-t-5 pd-x-30'>
+          <div className='col-lg-12 col-md-12 col-sm-12'>
             <div>
               <CardBilan />
             </div>
 
-            <div className='mt-5'>
+            <div className='mt-5 col-lg-12 '>
               <TableBilan />
             </div>
             <div className='container'>
-              <div className='row justify-content-around'>
-                <div className='col-lg-12 col-md-6 col-sm-12'>
-                  <h2>Category product for price </h2>
-                  <ChartComponentBar />
+              <div className='row d-grid'>
+                <div className='col-lg-12 col-md-12 col-sm-12'>
+                  <h2>Total par Catégories </h2>
+                  <ChartBar />
                 </div>
               </div>
             </div>
 
             <div className='row mg-t-20'>
-              <div className='col-lg-12 col-md-12 col-sm-12 d-flex align-content-around'>
-                <div className='col-lg-4 col-md-6 col-sm-12 mb-3'>
-                  <div className='card_doughnut'>
-                    <ChartComponentDoughnut />
-                  </div>
+              <div className='row d-flex flex-wrap '>
+                <div className="col-lg-6 col-md-12 col-sm-12">
+                  <ChartCamembert />
                 </div>
-                <div className='col-lg-4 col-md-6 col-sm-12 mb-3'>
-                  <div className='card_doughnut'>
-                    <ChartComponent />
-                  </div>
-                </div>
-                <div className='col-lg-4 col-md-12 col-sm-12'>
-                  <div className='card_doughnut'>
-                    <h4 className='tx-gray-800 mg-b-5'>Performance employés</h4>
-                    <ChartComponentPolarArea />
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className='row mg-t-20'>
-              <div className='col-lg-12 col-md-12 col-sm-12'>
-                <div className='row d-flex align-items-center'>
-                  <div className='col-lg-4 col-md-12 col-sm-12 mb-3'>
-                    <div className='card_doughnut'>
-                      <ChartComponentBarHorizontal />
-                    </div>
-                  </div>
-                  <div className='col-lg-8 col-md-12 col-sm-12'>
-                    <div className='card_doughnut'>
-                      <ChartComponentLine />
-                    </div>
-                  </div>
+                <div className="col-lg-6 col-md-12 col-sm-12">
+                  <ChartPerformance />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className='col-lg-12 col-md-12 col-sm-12 justify-content-around'>
-          <CardDetail />
         </div>
       </div>
     </main>

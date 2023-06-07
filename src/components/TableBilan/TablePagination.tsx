@@ -43,7 +43,8 @@ export const TablePagination = ({
             if (
               pageNumber === 1 ||
               pageNumber === nbPages ||
-              (pageNumber >= page - 1 && pageNumber <= page + 1)
+              (pageNumber >= page - 1 && pageNumber <= page + 1) ||
+              nbPages <= 10
             ) {
               return (
                 <Pagination.Item
@@ -56,7 +57,10 @@ export const TablePagination = ({
               );
             }
 
-            if (pageNumber === page - 2 || pageNumber === page + 2) {
+            if (
+              (pageNumber === page - 2 || pageNumber === page + 2) &&
+              nbPages > 10
+            ) {
               return <Pagination.Ellipsis key={pageNumber} />;
             }
 

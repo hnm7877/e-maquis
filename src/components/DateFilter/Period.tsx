@@ -59,10 +59,10 @@ export const Period = ({
         <Calendar
           prevLabel={<PrevIcon />}
           nextLabel={<NextIcon />}
-          formatMonth={(locale, date) =>
+          formatMonth={(_, date) =>
             helperDate(date || new Date(), 'MMM').slice(0, 3)
           }
-          formatShortWeekday={(locale, date) => helperDate(date, 'dd')}
+          formatShortWeekday={(_, date) => helperDate(date, 'dd')}
           view={calendarViewType}
           onClickDecade={(date) => onChange(date)}
           onClickMonth={(date) => onChange(date)}

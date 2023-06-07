@@ -7,7 +7,6 @@ export const SIDEBAR_DATA = [
       {
         title: 'bilan',
         link: '/bilan',
-        beta: true,
       },
     ],
   },
@@ -67,19 +66,19 @@ export const SIDEBAR_DATA = [
       },
     ],
   },
-  {
-    img: 'img/menu-icon/icone_fournisseur.png',
-    title: 'Fournisseur',
-    link: '/listefournisseur',
-    subMenu: [
-      {
-        title: 'Mes fournisseurs',
-        link: '/listefournisseur',
-      },
-      {
-        title: 'Ajouter un fournisseur',
-        link: '/ajouterfournisseur',
-      },
-    ],
-  },
-];
+  // {
+  //   img: 'img/menu-icon/icone_fournisseur.png',
+  //   title: 'Fournisseur',
+  //   link: '/listefournisseur',
+  //   subMenu: [
+  //     {
+  //       title: 'Mes fournisseurs',
+  //       link: '/listefournisseur',
+  //     },
+  //     {
+  //       title: 'Ajouter un fournisseur',
+  //       link: '/ajouterfournisseur',
+  //     },
+  //   ],
+  // },
+] as const;

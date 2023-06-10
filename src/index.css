@@ -17,6 +17,7 @@ a {
   width: 100%;
   height: 100vh;
   background-color: #f6f7fb;
+  overflow: auto;
 }
 
 .home__right {
@@ -37,7 +38,7 @@ tfoot {
 }
 
 /* Media query pour tous les supports */
-@media screen  {
+@media screen {
   .home {
     width: 100%;
     height: 100vh;
@@ -139,5 +140,3 @@ tfoot {
     margin: 0 0 0 0;
   }
 }
-
-

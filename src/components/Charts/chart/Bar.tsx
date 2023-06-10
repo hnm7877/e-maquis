@@ -125,7 +125,11 @@ export const ChartBar = () => {
               type: 'line' as const,
               label: categorie.label,
               data: categorie.data,
-              borderWidth: 1,
+              borderWidth: 5,
+              borderColor: [
+                allCategories?.find((cat: any) => cat.nom === categorie.label)
+                  .color,
+              ],
               backgroundColor: [
                 allCategories?.find((cat: any) => cat.nom === categorie.label)
                   .color,
@@ -149,7 +153,17 @@ export const ChartBar = () => {
           );
         })}
       </div>
-      <Chart type='bar' data={data} options={options} key={section} />
+      <Chart
+        type='bar'
+        data={data}
+        options={options}
+        key={section}
+        style={{
+          backgroundColor: 'white',
+          marginTop: '1rem',
+          padding: '1rem',
+        }}
+      />
     </>
   );
 };

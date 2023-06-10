@@ -1,7 +1,6 @@
 import { CardBilan } from '../CardBilan';
 import { TableBilan } from '../TableBilan';
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
@@ -11,10 +10,8 @@ import '../../assets/lib/Ionicons/css/ionicons.css';
 import { ChartBar, ChartPerformance, ChartCamembert } from '../Charts/chart';
 
 export const ComponentBilan = () => {
-
-
   return (
-    <main className="br-pagebody mg-t-5 pd-x-30">
+    <main className='br-pagebody mg-t-5 pd-x-30'>
       <div>
         <div>
           <div className='pd-30'>
@@ -41,13 +38,9 @@ export const ComponentBilan = () => {
 
             <div className='row mg-t-20'>
               <div className='row d-flex flex-wrap '>
-                <div className="col-lg-6 col-md-12 col-sm-12">
-                  <ChartCamembert />
-                </div>
+                <ChartCamembert />
 
-                <div className="col-lg-6 col-md-12 col-sm-12">
-                  <ChartPerformance />
-                </div>
+                <ChartPerformance />
               </div>
             </div>
           </div>

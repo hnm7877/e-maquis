@@ -60,7 +60,7 @@ export const CardBilan = () => {
             <div className="col">
                 <div className="bg-danger rounded overflow-hidden">
                     <div className="pd-25 d-flex align-items-center">
-                        <i className="ion ion-sal tx-60 lh-0 tx-white op-7"></i>
+                        <i className="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
                             <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total Ventes</p>
                             <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">
@@ -80,7 +80,7 @@ export const CardBilan = () => {
             <div className="col">
                 <div className="bg-primary rounded overflow-hidden">
                     <div className="pd-25 d-flex align-items-center">
-                        <i className="ion ion-pricetags tx-60 lh-0 tx-white op-7"></i>
+                        <i className="ion ion-wallet tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
                             <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total bénéfice</p>
                             <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">

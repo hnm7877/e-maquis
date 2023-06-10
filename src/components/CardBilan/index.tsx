@@ -3,6 +3,10 @@ import { useProducts } from '../../hooks/useProducts';
 import { useAppSelector } from '../../hooks/useRedux';
 import CountUp from 'react-countup';
 
+import {COLORS_TEMPLATE} from '../../../constants';
+
+console.log(COLORS_TEMPLATE);
+
 
 export const CardBilan = () => {
 
@@ -39,7 +43,7 @@ export const CardBilan = () => {
     return (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-4">
             <div className="col">
-                <div className="bg-teal rounded overflow-hidden">
+                <div className=" rounded overflow-hidden">
                     <div className="pd-25 d-flex align-items-center">
                         <i className="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">

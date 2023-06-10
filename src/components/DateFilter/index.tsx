@@ -54,7 +54,7 @@ export const DateFilter = () => {
   const dispatch = useAppDispatch();
 
   const dateRedux = useAppSelector((s) => s.filters.date);
-  console.log('👉 👉 👉  ~ file: index.tsx:56 ~ dateRedux:', dateRedux);
+  console.log('👉 👉 👉  ~ file: index.ts:56 ~ dateRedux:', dateRedux);
   const [isOpen, setIsOpen] = useState(false);
   const [date, dateDispatch] = useReducer(reducer, {
     dateType: 'from',

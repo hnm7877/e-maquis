@@ -1,6 +1,7 @@
 import { CardBilan } from '../CardBilan';
 import { TableBilan } from '../TableBilan';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/bilan.min.css';
 import './table.css';
@@ -10,6 +11,8 @@ import '../../assets/lib/Ionicons/css/ionicons.css';
 import { ChartBar, ChartPerformance, ChartCamembert } from '../Charts/chart';
 
 export const ComponentBilan = () => {
+
+
   return (
     <main className="br-pagebody mg-t-5 pd-x-30">
       <div>

@@ -82,9 +82,9 @@ export const CardBilan = () => {
                     <div className="pd-25 d-flex align-items-center">
                         <i className="ion ion-clock tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
-                            <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Bounce Rate</p>
-                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">32.16%</p>
-                            <span className="tx-11 tx-roboto tx-white-6">65.45% on average time</span>
+                            <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Nombre de bouteilles</p>
+                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1"><CountUp end={32.16} />%</p>
+                            <span className="tx-11 tx-roboto tx-white-6"></span>
                         </div>
                     </div>
                 </div>

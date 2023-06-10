@@ -17,75 +17,118 @@ export const SideBar = () => {
 
   return (
     <div>
-
-
-        <a className=" btn-offcanvas" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-           aria-controls="offcanvasExample">
-            Accueil
-        </a>
-        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample"
-             aria-labelledby="offcanvasExampleLabel">
-            <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-            </div>
-            <div className="offcanvas-body sidebar">
-                <div className='logo d-flex justify-content-between'>
-                    <a className='large_logo' href='/dashboard'>
-                        <img src='img/paresseux_sous_officiel.png' alt='' />
-                    </a>
-                    <div className='sidebar_close_icon d-lg-none'>
-                        <i className='ti-close'></i>
-                    </div>
-                </div>
-                <div className="dropdown mt-3">
-                    <ul id='sidebar_menu'>
-                        {SIDEBAR_DATA.map((item, kIndex) => {
-                            return (
-                                <li className='' key={kIndex}>
-                                    <a
-                                        className='has-arrow'
-                                        href='#'
-                                        aria-expanded='false'
-                                        onClick={() => {
-                                            handleSelectItem(kIndex);
-                                        }}
-                                    >
-                                        <div className='nav_icon_small'>
-                                            <img src={item.img} alt='' />
-                                        </div>
-                                        <div className='nav_title'>
-                                            <span>{item.title}</span>
-                                        </div>
-                                    </a>
-                                    <div
-                                        className={`list-group sub-menu ${
-                                            indexActive === kIndex ? 'open' : ''
-                                        }`}
-                                    >
-                                        <ul className='list-group'>
-                                            {item.subMenu?.map((subItem, index) => {
-                                                return (
-                                                    <li className='list-group-item' key={index}>
-                                                        <a href={subItem.link}>
-                                                            {subItem.title}{' '}
-                                                            {!!subItem.beta && (
-                                                                <span className='badge badge-info'>Bêta</span>
-                                                            )}
-                                                        </a>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            </div>
+      <a
+        className=' btn-offcanvas'
+        data-bs-toggle='offcanvas'
+        href='#offcanvasExample'
+        role='button'
+        aria-controls='offcanvasExample'
+      >
+        Accueil
+      </a>
+      <nav
+        className='offcanvas offcanvas-start sidebar'
+        tabIndex={-1}
+        id='offcanvasExample'
+        aria-labelledby='offcanvasExampleLabel'
+      >
+        <div className='logo d-flex justify-content-between'>
+          <a className='large_logo' href='/dashboard'>
+            <img src='img/paresseux_sous_officiel.png' alt='' />
+          </a>
+          <button
+            type='button'
+            className='btn-close'
+            data-bs-dismiss='offcanvas'
+            aria-label='Close'
+          ></button>
         </div>
+        <ul id='sidebar_menu'>
+          {SIDEBAR_DATA.map((item, kIndex) => {
+            return (
+              <li className='' key={kIndex}>
+                <a
+                  className='has-arrow'
+                  href='#'
+                  aria-expanded='false'
+                  onClick={() => {
+                    handleSelectItem(kIndex);
+                  }}
+                >
+                  <div className='nav_icon_small icon_anim'>
+                    <img src={item.img} alt='' />
+                  </div>
+                  <div className='nav_title'>
+                    <span>{item.title}</span>
+                  </div>
+                </a>
+                <div
+                  className={`list-group sub-menu ${
+                    indexActive === kIndex ? 'open' : ''
+                  }`}
+                >
+                  <ul className='list-group'>
+                    {item.subMenu?.map((subItem, index) => {
+                      return (
+                        <li key={index}>
+                          <a href={subItem.link}>{subItem.title} </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+            );
+          })}
+          <li className=''>
+            <a
+              className='has-arrow'
+              href='#'
+              aria-expanded='false'
+              onClick={() => handleSelectItem(99)}
+            >
+              <div className='nav_icon_small icon_anim'>
+                <img
+                  src='img/menu-icon/reglage.png'
+                  // style='height: 35px; width: 35px;'
+                  className='img-fluid '
+                  alt='img remarque'
+                />
+              </div>
+              <div className='nav_title'>
+                <span>Réglages</span>
+              </div>
+            </a>
+            <div
+              className={`list-group sub-menu ${
+                indexActive === 99 ? 'open' : ''
+              }`}
+            >
+              <ul className='list-group'>
+                <div className='profile_info_details'>
+                  <li>
+                    <a href='/profile'>Mon Profil </a>
+                  </li>
+                  <li>
+                    <a href='#'>Réglage</a>
+                  </li>
+                  <li>
+                    <a href='/deconnexion'>Déconnexion </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <div className='profile_info_details'>
+              <a
+                href='/deconnexion'
+                className='btn btn-danger side-deconnexion text-center text-dark'
+              >
+                Déconnexion{' '}
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

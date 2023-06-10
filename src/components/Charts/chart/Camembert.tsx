@@ -96,9 +96,8 @@ export const ChartCamembert = () => {
   return (
     <div className='col-lg-6 col-md-6 col-sm-12 mb-3'>
       <div className='chart-camembert__employees'>
-
         <div className='d-flex gap-2'>
-            <h4 className='tx-gray-800 mg-b-5'>employés</h4>
+          <h4 className='tx-gray-800 mg-b-5'>employés</h4>
           {employes?.map((employe) => {
             return (
               <button

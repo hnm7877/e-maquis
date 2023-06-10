@@ -1,6 +1,7 @@
 import './card.css';
 import { useProducts } from '../../hooks/useProducts';
 import { useAppSelector } from '../../hooks/useRedux';
+import CountUp from 'react-countup';
 
 
 export const CardBilan = () => {
@@ -43,7 +44,7 @@ export const CardBilan = () => {
                         <i className="ion ion-earth tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
                             <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total achat</p>
-                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{total_achat}</p>
+                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1"><CountUp end={total_achat} /></p>
                             <span className="tx-11 tx-roboto tx-white-6"></span>
                         </div>
                     </div>
@@ -56,7 +57,7 @@ export const CardBilan = () => {
                         <i className="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
                             <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total Ventes</p>
-                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{total_ventes}</p>
+                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1"><CountUp end={total_ventes} /></p>
                             <span className="tx-11 tx-roboto tx-white-6"></span>
                         </div>
                     </div>
@@ -69,7 +70,7 @@ export const CardBilan = () => {
                         <i className="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
                         <div className="mg-l-20">
                             <p className="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total bénéfice</p>
-                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{benefice}</p>
+                            <p className="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1"><CountUp end={benefice} /></p>
                             <span className="tx-11 tx-roboto tx-white-6"></span>
                         </div>
                     </div>

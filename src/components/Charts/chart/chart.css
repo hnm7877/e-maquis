@@ -24,6 +24,7 @@
   cursor: pointer;
   color: black;
   text-transform: capitalize;
+  padding: 0 1rem;
 }
 
 .chart__section-bar__button--active,

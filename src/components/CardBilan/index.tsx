@@ -5,8 +5,6 @@ import CountUp from 'react-countup';
 
 import { COLORS_TEMPLATE } from '../../../constants';
 
-console.log(COLORS_TEMPLATE);
-
 export const CardBilan = () => {
   const { products } = useProducts();
 
@@ -41,6 +39,14 @@ export const CardBilan = () => {
     return acc + product.quantite;
   }, 0);
 
+  const total_retour_quantity = allProducts?.reduce((acc, product) => {
+    return acc + product.retour_quantite;
+  }, 0);
+
+  const total_retour = allProducts?.reduce((acc, product) => {
+    return acc + product.retour_quantite * product.prix_achat;
+  }, 0);
+
   const TABS = [
     {
       label: 'Total achat',
@@ -63,37 +69,55 @@ export const CardBilan = () => {
     {
       label: 'Nombre de bouteilles',
       value: total_quantity,
+      total_retour_quantity,
       color: COLORS_TEMPLATE[4],
       isQuantity: true,
       icon: 'ion-ios-pint',
     },
+    {
+      label: 'Nombre de bouteilles retournées',
+      value: total_retour_quantity,
+      color: COLORS_TEMPLATE[5],
+      isQuantity: true,
+      return_product: true,
+    },
+    {
+      label: 'Montant retourné',
+      value: total_retour,
+      color: COLORS_TEMPLATE[5],
+      return_product: true,
+    },
   ];
 
   return (
-    <div className='row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-4'>
+    <div className='row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-4 items-center'>
       {TABS.map((tab, index) => {
         return (
-          <div className='col' key={index}>
+          <div
+            className={`col-md-${
+              tab.return_product ? '6' : '3'
+            } col-sm-12 mt-2`}
+            key={index}
+          >
             <div
               style={{
                 backgroundColor: tab.color,
               }}
-              className='rounded overflow-hidden'
+              className='rounded overflow-hidden d-flex align-items-center space-between'
             >
               <div className='pd-25 d-flex align-items-center'>
                 <i className={`ion ${tab.icon} tx-60 lh-0 tx-white op-7'`}></i>
                 <div className='mg-l-20'>
-                  <p className='tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10'>
+                  <p className='tx-10 tx-spacing-1 tx-mont tx-bold tx-uppercase tx-white mg-b-10'>
                     {tab.label}
                   </p>
-                  <p className='tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1'>
+                  <p className='tx-22 tx-white tx-lato tx-bold mg-b-2 lh-1'>
                     <CountUp
                       end={tab.value}
                       separator='.'
                       suffix={tab.isQuantity ? '' : ' FCFA'}
                     />
                   </p>
-                  <span className='tx-11 tx-roboto tx-white-6'></span>
                 </div>
               </div>
             </div>

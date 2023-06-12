@@ -17,6 +17,7 @@ export type TVente = {
   _id: string;
   productId: string;
   total_vente: number;
+  retour_quantite: number;
   benefice: number;
   employe: TEmployee;
 };

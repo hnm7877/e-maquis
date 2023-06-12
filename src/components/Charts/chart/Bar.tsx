@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useProducts } from '../../../hooks/useProducts';
 import { helperDate } from '../../../helpers/helperDate';
 import { Chart } from 'react-chartjs-2';
+import { COLORS_TEMPLATE } from '../../../../constants';
 
 const options = {
   responsive: true,
@@ -47,6 +48,13 @@ export const ChartBar = () => {
       return acc;
     }, {});
   });
+
+  const turn_over = keyOfFilterProductByDate?.map((date) => {
+    return filterProductByDate[date].reduce((acc: any, product: any) => {
+      return acc + product.total_vente;
+    }, 0);
+  });
+  console.log('👉 👉 👉  ~ file: Bar.tsx:57 ~ turn_over:', turn_over);
 
   const categories_total_vente = keyOfFilterProductByDate?.map((date) => {
     return filterProductByDate[date].reduce((acc: any, product: any) => {
@@ -120,27 +128,42 @@ export const ChartBar = () => {
               ],
             };
           })
-        : Object.values(categoriesDataLine).map((categorie: any) => {
+        : section === 'montant'
+        ? Object.values(
+            section === 'montant' ? categoriesDataLine : turn_over
+          ).map((categorie: any) => {
             return {
               type: 'line' as const,
-              label: categorie.label,
+              label: categorie.label || "Chiffre d'affaire",
               data: categorie.data,
               borderWidth: 5,
               borderColor: [
                 allCategories?.find((cat: any) => cat.nom === categorie.label)
-                  .color,
+                  ?.color || COLORS_TEMPLATE[2],
               ],
               backgroundColor: [
                 allCategories?.find((cat: any) => cat.nom === categorie.label)
-                  .color,
+                  ?.color || COLORS_TEMPLATE[2],
+                ,
               ],
             };
-          }),
+          })
+        : [
+            {
+              type: 'line' as const,
+              label: "Chiffre d'affaire",
+              data: turn_over,
+              borderWidth: 5,
+              borderColor: [COLORS_TEMPLATE[2]],
+              backgroundColor: [COLORS_TEMPLATE[2]],
+            },
+          ],
   };
+
   return (
     <>
       <div className='chart__section-bar'>
-        {['quantite', 'montant'].map((_section) => {
+        {['quantite', 'montant', "chiffre d'affaire"].map((_section) => {
           return (
             <button
               className={`chart__section-bar__button ${

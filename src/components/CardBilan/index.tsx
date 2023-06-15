@@ -96,14 +96,14 @@ export const CardBilan = () => {
           <div
             className={`col-md-${
               tab.return_product ? '6' : '3'
-            } col-sm-12 mt-2`}
+            } col-sm-12 mt-2 bilanCard`}
             key={index}
           >
             <div
               style={{
                 backgroundColor: tab.color,
               }}
-              className='rounded overflow-hidden d-flex align-items-center space-between'
+              className='rounded overflow-hidden d-flex align-items-center space-between '
             >
               <div className='pd-25 d-flex align-items-center'>
                 <i className={`ion ${tab.icon} tx-60 lh-0 tx-white op-7'`}></i>

@@ -109,10 +109,9 @@ export const TableBilan = () => {
               <>
                 {products && products?.length > 0 && (
                   <tr className='table-dark'>
-                    <th colSpan={5} />
-                    <th>Total Prix d'achat: {total_achat} FCFA</th>
-                    <th>Total Vente totale: {total_ventes}FCFA</th>
-                    <th>Total Bénéfice: {benefice} FCFA</th>
+                    <th colSpan={3}>Total Prix d'achat: {total_achat} FCFA</th>
+                    <th colSpan={3}>Total Vente totale: {total_ventes}FCFA</th>
+                    <th colSpan={2}>Total Bénéfice: {benefice} FCFA</th>
                   </tr>
                 )}
               </>

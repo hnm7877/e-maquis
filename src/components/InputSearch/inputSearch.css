@@ -24,6 +24,6 @@
 
 @media (max-width: 767px) {
   .input-search-container {
-    width: 22%;
+    width: 100%;
   }
 }

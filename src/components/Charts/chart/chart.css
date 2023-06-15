@@ -32,3 +32,36 @@
   background-color: var(--secondary-color);
   color: #fff;
 }
+
+@media (max-width: 767px) {
+  .chart__section-bar button {
+    padding: 0 0.5rem;
+    font-size: 10px;
+    width: auto;
+  }
+
+  .chart-camembert__employees {
+    width: 100%;
+  }
+
+  .chart-camembert__employees > div {
+    flex-wrap: wrap;
+  }
+
+  .chart-camembert__employees > div > h4 {
+    width: 100%;
+  }
+
+  .chart-camembert__employee {
+    width: auto;
+  }
+
+  .card_doughnut {
+    max-width: 100% !important;
+    margin: 0 !important;
+
+    margin-top: 1rem !important;
+
+    height: 400px;
+  }
+}

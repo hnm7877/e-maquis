@@ -14,29 +14,30 @@ export const ComponentBilan = () => {
     <main className='br-pagebody mg-t-5 pd-x-30'>
       <div>
         <div>
-          <div className='pd-30'>
+          <div className='pd-30 bilanTitle'>
             <h4 className='tx-gray-800 mg-b-5'>Bilan</h4>
             <p className='mg-b-0'></p>
           </div>
 
-          <div className='col-lg-12 col-md-12 col-sm-12'>
+          <div className='col-lg-12 col-md-12 col-sm-12 bilanContent'>
             <div>
               <CardBilan />
             </div>
 
-            <div className='mt-5 col-lg-12 '>
+            <div className='mt-5 col-lg-12 bilanTable'>
               <TableBilan />
             </div>
             <div className='container'>
               <div className='row d-grid'>
-                <div className='col-lg-12 col-md-12 col-sm-12'>
-                  <h2>Total par Catégories </h2>
+                <div className='col-lg-12 col-md-12 col-sm-12 categories'>
+                  <h4 className='tx-gray-800 mg-b-5'>Total par Catégories</h4>
+
                   <ChartBar />
                 </div>
               </div>
             </div>
 
-            <div className='row mg-t-20'>
+            <div className='row mg-t-20 camembertAndPerformance'>
               <div className='row d-flex flex-wrap '>
                 <ChartCamembert />
 
